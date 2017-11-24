@@ -52,8 +52,13 @@ public class Calculator {
 	 * 
 	 * @return: the result of the division.
 	 * */
-	public double divide(double firstNumber, double secondNumber){
+	public double divide(double firstNumber, double secondNumber){		
+		if (secondNumber ==0) {
+			System.out.println("Division by zero?");
+			return -0.123456789;
+		}
 		return firstNumber/secondNumber;
+		
 	}
 	
 	

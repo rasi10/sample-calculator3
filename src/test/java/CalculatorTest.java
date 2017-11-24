@@ -300,6 +300,36 @@ public class CalculatorTest {
 		
 	}
 	
+	@Test
+	public void testDivideZeros() {
+		// Testing the case 0 / 0
+		double firstNumber = 0;
+		double secondNumber = 0;
+		double result = -0.123456789;
+				
+		LOG.info("Testing the method divide with: "+ firstNumber +" and " + secondNumber);
+		assertEquals(Math.round(calculator.divide(firstNumber, secondNumber)), Math.round(result),1);
+		
+		
+		for (int i = 0; i < 200; i++) {
+			// Testing the case of (Random something) / 0
+			firstNumber = Double.valueOf(df.format(random.nextDouble()*(1000)));
+			secondNumber = 0;
+			result = -0.123456789;
+			LOG.info("Testing the method divide with: "+ firstNumber +" and " + secondNumber);
+			assertEquals(Math.round(calculator.divide(firstNumber, secondNumber)), Math.round(result),1);
+			
+			//Testing the case of 0 / random something.
+			firstNumber = 0;
+			secondNumber = Double.valueOf(df.format(random.nextDouble()*(1000)));
+			result = firstNumber / secondNumber;
+			LOG.info("Testing the method divide with: "+ firstNumber +" and " + secondNumber);
+			assertEquals(Math.round(calculator.divide(firstNumber, secondNumber)), Math.round(result),1);
+		}
+		
+		
+	}
+	
 	
 
 }
